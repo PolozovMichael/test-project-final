@@ -1,5 +1,4 @@
 import { EnvVarWarning } from '@/components/env-var-warning'
-import HeaderAuth from '@/components/header-auth'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import { hasEnvVars } from '@/utils/supabase/check-env-vars'
 import { GeistSans } from 'geist/font/sans'
@@ -9,6 +8,7 @@ import { BackgroundGradientAnimation } from '@/components/ui/background-gradient
 import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
 import Image from 'next/image'
+import AuthButton from '@/components/header-auth'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -50,7 +50,7 @@ export default function RootLayout({
                       </Link>
                     </div>
                     <div className="flex items-center gap-5">
-                      {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
+                      {!hasEnvVars ? <EnvVarWarning /> : <AuthButton />}
                       <ThemeSwitcher />
                     </div>
                   </div>
